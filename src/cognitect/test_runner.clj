@@ -70,6 +70,8 @@
       (filter-vars! nses (var-filter options))
       (with-redefs [test/report report]
         (apply test/run-tests nses))
+      (catch Exception e
+        (println e))
       (finally
         (restore-vars! nses)))))
 
